@@ -1,5 +1,7 @@
 name: Docker Compose Actions Workflow
 on:
+  workflow_dispatch:
+    
   push:
     branches:
         - main
@@ -33,7 +35,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }} 
-          
+
       - name: Pull and scan images
         run: |
           docker scan ${{ secrets.DOCKERHUB_USERNAME }}/parsedmarc:latest
