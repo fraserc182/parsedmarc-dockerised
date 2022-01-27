@@ -2,6 +2,7 @@ version: '3.5'
 services:
   parsedmarc:
     build: ./parsedmarc/
+    image: fraserc182/parsedmarc:latest
     volumes:
       - ./shared_files:/input:ro
       - ./output_files:/output
@@ -36,6 +37,7 @@ services:
 
   grafana:
     build: ./grafana/
+    image: fraserc182/grafana:latest
     ports:
       - 3000:3000
     user: root
@@ -45,6 +47,7 @@ services:
   
   python_docker:
     build: ./python_docker
+    image: fraserc182/python_docker:latest
     volumes:
       - ./shared_files:/input
     restart: always
