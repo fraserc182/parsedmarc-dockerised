@@ -34,14 +34,14 @@ jobs:
       - name: Pull and scan parsedmarc
         uses: azure/container-scan@v0
         with:
-          image-name: ${{ secrets.DOCKER_USERNAME }}/parsedmarc:latest
+          image-name: parsedmarc:latest
 
       - name: Pull and scan grafana
         uses: azure/container-scan@v0
         with:
-          image-name: ${{ secrets.DOCKER_USERNAME }}/grafana:latest
+          image-name: grafana:latest
 
       - name: Pull and scan python_docker
         uses: azure/container-scan@v0
         with:
-          image-name: ${{ secrets.DOCKER_USERNAME }}/python_docker:latest
+          image-name: python_docker:latest
