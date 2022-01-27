@@ -8,7 +8,7 @@ on:
       - 'parsedmarc/**'
       - 'python_docker/**'
 jobs:
-  docker_build:
+  docker_build_and_push:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,3 +23,12 @@ jobs:
           
       - name: Push to docker hub
         run: docker compose push
+
+  docker_scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull and scan images
+        run: |
+          docker ${{ secrets.DOCKERHUB_USERNAME }}/'parsedmarc:latest
+          docker ${{ secrets.DOCKERHUB_USERNAME }}/'grafana:latest
+          docker ${{ secrets.DOCKERHUB_USERNAME }}/'python_docker:latest
