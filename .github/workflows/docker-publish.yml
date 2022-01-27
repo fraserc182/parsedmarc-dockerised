@@ -29,6 +29,6 @@ jobs:
     steps:
       - name: Pull and scan images
         run: |
-          docker scan ${{ secrets.DOCKERHUB_USERNAME }}/'parsedmarc:latest
-          docker scan ${{ secrets.DOCKERHUB_USERNAME }}/'grafana:latest
-          docker scan ${{ secrets.DOCKERHUB_USERNAME }}/'python_docker:latest
+          docker scan ${{ secrets.DOCKERHUB_USERNAME }}/parsedmarc:latest
+          docker scan ${{ secrets.DOCKERHUB_USERNAME }}/grafana:latest
+          docker scan ${{ secrets.DOCKERHUB_USERNAME }}/python_docker:latest
