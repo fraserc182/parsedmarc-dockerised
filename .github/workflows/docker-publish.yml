@@ -28,11 +28,11 @@ jobs:
 
   docker_scan:
     needs: docker_build_and_push
-    
+
     runs-on: ubuntu-latest
     steps:
       - name: Install scan plugin
-        run: apt install docker-scan-plugin
+        run: sudo apt-get install docker-scan-plugin
 
       - name: Login to DockerHub
         uses: docker/login-action@v1 
