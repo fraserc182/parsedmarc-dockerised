@@ -27,6 +27,8 @@ jobs:
         run: docker compose push
 
   docker_scan:
+    needs: docker_build_and_push
+    
     runs-on: ubuntu-latest
     steps:
       - name: Install scan plugin
