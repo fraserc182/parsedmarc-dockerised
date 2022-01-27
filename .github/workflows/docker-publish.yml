@@ -4,7 +4,9 @@ on:
     branches:
         - main
     paths:
-      - '**Dockerfile'
+      - 'grafana/**'
+      - 'parsedmarc/**'
+      - 'python_docker/**'
 jobs:
   docker_build:
     runs-on: ubuntu-latest
