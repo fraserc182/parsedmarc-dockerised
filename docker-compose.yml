@@ -11,12 +11,12 @@ services:
       elasticsearch:
          condition: service_healthy
       
-      python_docker:
-        condition: service_started
     restart: always
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.16.2
+    volumes:
+      - ./data/es:/tmp/elasticsearch/data    
     environment:
       - cluster.name=parsedmarc
       - discovery.type=single-node
