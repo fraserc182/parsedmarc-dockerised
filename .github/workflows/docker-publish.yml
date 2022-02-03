@@ -42,7 +42,7 @@ jobs:
       - name: Pull and scan parsedmarc
         uses: azure/container-scan@v0
         with:
-          image-name: parsedmarc:latest
+          image-name: ${{ env.loginServerUrl }}/fraserc812/parsedmarc:latest
 
       - name: Pull and scan grafana
         uses: azure/container-scan@v0
