@@ -33,12 +33,32 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2     
 
-      - name: Run Trivy vulnerability scanner
+      - name: Trivy - parsedmarc
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: 'fraserc182/parsedmarc:latest'
           format: 'table'
           exit-code: '1'
-          ignore-unfixed: true
+          ignore-unfixed: false
           vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH'
+          severity: 'UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL'
+          
+      - name: Trivy - grafana
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'fraserc182/grafana:latest'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: false
+          vuln-type: 'os,library'
+          severity: 'UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL'
+          
+      - name: Trivy - python_docker
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'fraserc182/python_docker:latest'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: false
+          vuln-type: 'os,library'
+          severity: 'UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL'          
