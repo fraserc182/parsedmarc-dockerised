@@ -41,9 +41,9 @@ jobs:
       - name: Pull and scan grafana
         uses: azure/container-scan@v0
         with:
-          image-name: grafana:latest
+          image-name: fraserc182/grafana:latest
 
       - name: Pull and scan python_docker
         uses: azure/container-scan@v0
         with:
-          image-name: python_docker:latest
+          image-name: fraserc182/python_docker:latest
