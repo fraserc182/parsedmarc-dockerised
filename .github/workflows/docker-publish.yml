@@ -33,17 +33,12 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2     
 
-      - name: Pull and scan parsedmarc
-        uses: azure/container-scan@v0
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
         with:
-          image-name: fraserc182/parsedmarc:latest
-
-      - name: Pull and scan grafana
-        uses: azure/container-scan@v0
-        with:
-          image-name: fraserc182/grafana:latest
-
-      - name: Pull and scan python_docker
-        uses: azure/container-scan@v0
-        with:
-          image-name: fraserc182/python_docker:latest
+          image-ref: 'fraserc182/parsedmarc:latest'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
