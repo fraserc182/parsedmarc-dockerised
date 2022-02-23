@@ -1,0 +1,5 @@
+grafana in prod wil need the datasources set up etc.
+it will need to be able to reach the elasticsearch host to get this info
+
+need to figure out how to make elasticsearch available for grafana when not deployed in the same compose file.
+as in prod, grafana will not be deployed here
