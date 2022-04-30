@@ -18,6 +18,7 @@ services:
     volumes:
       - ./data/es:/tmp/elasticsearch/data    
     environment:
+      - network.host=updateme
       - cluster.name=parsedmarc
       - discovery.type=single-node
       - bootstrap.memory_lock=true

@@ -1,6 +1,6 @@
 from imap_tools import MailBox
 
-with MailBox('outlook.office365.com').login('fraser.clark@itoworld.com', 'test') as mailbox:
+with MailBox('outlook.office365.com').login('fraser.clark@itoworld.com', 'enter_password_here') as mailbox:
     mailbox.folder.set('dmarc/reports')
     for msg in mailbox.fetch():
         for att in msg.attachments:
